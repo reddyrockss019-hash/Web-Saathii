@@ -60,7 +60,7 @@ Return ONLY clean HTML with inline CSS. No markdown, no backticks, just the raw 
           content: prompt,
         },
       ],
-      max_tokens: 4000,
+      max_completion_tokens: 4000,
     });
 
     const html = completion.choices[0]?.message?.content ?? "";
