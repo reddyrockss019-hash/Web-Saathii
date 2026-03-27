@@ -1,0 +1,275 @@
+You are a senior full-stack engineer.
+
+Build a complete production-ready MVP called "WebSaathii – AI Guided Website Builder".
+
+GOAL:
+
+Create a simple, fast, and beginner-friendly platform where non-technical users can create a website step-by-step with AI guidance in their preferred language.
+
+IMPORTANT:
+
+- Focus on a WORKING MVP, not perfection
+
+- Avoid unnecessary complexity
+
+- Code must be clean, modular, and runnable without errors
+
+TECH STACK:
+
+- Frontend: React (Vite)
+
+- Backend: Node.js (Express)
+
+- Styling: Tailwind CSS
+
+- Authentication: Firebase Google OAuth
+
+- Database: Firebase Firestore (store users only)
+
+- AI: OpenAI API
+
+PROJECT STRUCTURE:
+
+Create a full folder structure:
+
+/frontend
+
+/backend
+
+Include:
+
+- All files
+
+- package.json
+
+- environment variable examples
+
+- setup instructions
+
+--------------------------------------------------
+
+AUTHENTICATION:
+
+- Implement Google Sign-In using Firebase Authentication
+
+- After login, store user name + email in Firestore
+
+- Maintain session
+
+- Add logout functionality
+
+--------------------------------------------------
+
+APPLICATION FLOW:
+
+1. LOGIN PAGE
+
+- Centered UI
+
+- “Sign in with Google” button
+
+- Minimal design
+
+2. DASHBOARD
+
+- Show user name
+
+- Button: “Create New Website”
+
+--------------------------------------------------
+
+3. WEBSITE BUILDER (MULTI-STEP FLOW)
+
+STEP 1:
+
+- Business Name
+
+- Business Type (Dropdown)
+
+- Location
+
+STEP 2:
+
+- Show suggestions based on business type
+
+Example:
+
+Bakery → Cakes, Pastries, Cookies, Bread
+
+IMPORTANT:
+
+- Use predefined hardcoded suggestions (not AI)
+
+- Display as selectable cards
+
+- Allow multi-select
+
+STEP 3:
+
+- Language Selection:
+
+  - English
+
+  - Hindi
+
+  - Telugu
+
+STEP 4:
+
+- Generate Website button
+
+--------------------------------------------------
+
+4. LOADING SCREEN
+
+- Spinner
+
+- Text: “Creating your website...”
+
+--------------------------------------------------
+
+5. WEBSITE PREVIEW PAGE
+
+Split layout:
+
+LEFT PANEL:
+
+- Regenerate button
+
+- Edit content button (simple text editing only)
+
+- Download HTML button
+
+RIGHT PANEL:
+
+- Render generated HTML
+
+--------------------------------------------------
+
+AI FUNCTION:
+
+Create backend endpoint: POST /generate
+
+Use OpenAI API to generate website content.
+
+PROMPT:
+
+"You are a professional web designer.
+
+Generate a complete modern website in {language}.
+
+Business Name: {name}
+
+Business Type: {type}
+
+Location: {location}
+
+Services: {selected_items}
+
+Include:
+
+- Hero section
+
+- About section
+
+- Services section
+
+- Contact section
+
+Use simple language suitable for local users.
+
+Return clean HTML with inline CSS."
+
+--------------------------------------------------
+
+FRONTEND REQUIREMENTS:
+
+- Multi-step wizard UI
+
+- React hooks for state
+
+- Show step progress (Step 1, Step 2, etc.)
+
+- Loading state handling
+
+- Error handling
+
+- Clean navigation
+
+--------------------------------------------------
+
+UI/UX RULES:
+
+- White background
+
+- Black text
+
+- Blue primary button (#2563EB)
+
+- Clean spacing
+
+- Minimalist SaaS design
+
+- Mobile responsive
+
+--------------------------------------------------
+
+BACKEND REQUIREMENTS:
+
+- Express server
+
+- /generate API endpoint
+
+- Proper error handling
+
+- Environment variable usage
+
+--------------------------------------------------
+
+EXTRA FEATURES:
+
+- Logout button
+
+- Success/error messages
+
+- Basic validation
+
+--------------------------------------------------
+
+OUTPUT FORMAT:
+
+1. Provide full backend code
+
+2. Provide full frontend code
+
+3. Provide setup instructions step-by-step
+
+4. Provide .env example file
+
+5. Ensure project runs without errors
+
+--------------------------------------------------
+
+CONSTRAINTS:
+
+- Do NOT over-engineer
+
+- Do NOT add unnecessary features
+
+- Keep code simple and readable
+
+- Ensure demo reliability
+
+--------------------------------------------------
+
+FINAL PRIORITY:
+
+1. App runs without errors
+
+2. Login works
+
+3. Builder flow works
+
+4. AI generates website
+
+5. UI is clean and usable

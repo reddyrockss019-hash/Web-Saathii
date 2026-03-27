@@ -1,0 +1,19 @@
+packages:
+  "framer-motion": "Smooth page transitions and micro-interactions for a premium SaaS feel"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for cleanly merging Tailwind CSS classes"
+  "lucide-react": "Beautiful, consistent iconography"
+  "@hookform/resolvers": "Form validation resolution"
+  "react-hook-form": "Performant, flexible and extensible forms with easy-to-use validation"
+  "zod": "TypeScript-first schema validation for forms"
+  "@workspace/replit-auth-web": "Required for Replit authentication integration"
+
+images:
+  - path: "artifacts/websaathii/public/images/hero-bg.png"
+    description: "Minimal 3D abstract geometric shapes in clean white and vibrant blue colors, professional modern SaaS landing page background, highly polished, volumetric lighting"
+    aspect_ratio: "16:9"
+
+notes:
+  - Auth is handled via @workspace/replit-auth-web using useAuth()
+  - Website generation calls POST /api/generate with direct fetch using import.meta.env.BASE_URL
+  - Generated HTML is temporarily stored in localStorage to be passed to the preview page
