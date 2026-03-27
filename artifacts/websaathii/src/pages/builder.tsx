@@ -74,7 +74,10 @@ export default function Builder() {
       return;
     }
 
-    generateWebsite(formData as GenerateWebsiteRequest, {
+    const request = formData as GenerateWebsiteRequest;
+    localStorage.setItem("builderData", JSON.stringify(request));
+
+    generateWebsite(request, {
       onSuccess: (data) => {
         localStorage.setItem("generatedHtml", data.html);
         setLocation("/preview");
