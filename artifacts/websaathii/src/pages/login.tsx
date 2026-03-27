@@ -2,8 +2,15 @@ import { useEffect } from "react";
 import { useLocation } from "wouter";
 import { useAuth } from "@workspace/replit-auth-web";
 import { motion } from "framer-motion";
-import { Sparkles, ArrowRight, CheckCircle2 } from "lucide-react";
+import { ArrowRight, CheckCircle2, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const features = [
+  "No coding skills required",
+  "AI-powered content generation",
+  "Available in English, Hindi & Telugu",
+  "Download your site instantly",
+];
 
 export default function Login() {
   const [, setLocation] = useLocation();
@@ -23,101 +30,132 @@ export default function Login() {
     );
   }
 
-  const features = [
-    "No coding skills required",
-    "AI-powered content generation",
-    "Beautiful modern templates",
-    "Ready in under 2 minutes"
-  ];
-
   return (
-    <div className="relative flex min-h-screen flex-col overflow-hidden bg-background">
-      {/* Decorative background elements */}
-      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] rounded-full bg-primary/5 blur-[120px]" />
-        <div className="absolute top-[40%] -right-[10%] w-[40%] h-[60%] rounded-full bg-blue-400/5 blur-[120px]" />
+    <div className="relative flex min-h-screen flex-col overflow-hidden bg-gradient-to-br from-slate-50 via-white to-blue-50/30">
+      {/* Ambient blobs */}
+      <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute -left-[15%] -top-[10%] h-[60%] w-[50%] rounded-full bg-primary/5 blur-[140px]" />
+        <div className="absolute -right-[10%] top-[35%] h-[55%] w-[45%] rounded-full bg-green-400/5 blur-[140px]" />
       </div>
 
-      <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 sm:px-6 lg:px-8">
-        <div className="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col items-start"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 mb-6">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm font-medium text-primary">AI Website Builder</span>
-            </div>
-            
-            <h1 className="text-5xl sm:text-6xl font-extrabold tracking-tight text-foreground mb-6">
-              Create your website in <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">minutes</span>.
-            </h1>
-            
-            <p className="text-lg text-muted-foreground mb-10 max-w-lg">
-              WebSaathii uses advanced AI to generate a fully functional, beautifully designed website for your business. Just tell us what you do.
-            </p>
+      <main className="relative z-10 flex flex-1 flex-col items-center justify-center px-4 py-12 sm:px-6 lg:px-8">
+        <div className="w-full max-w-5xl">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
 
-            <ul className="space-y-4 mb-10">
-              {features.map((feature, i) => (
-                <motion.li 
-                  key={i}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.3 + (i * 0.1) }}
-                  className="flex items-center gap-3 text-foreground font-medium"
-                >
-                  <CheckCircle2 className="h-5 w-5 text-green-500" />
-                  {feature}
-                </motion.li>
-              ))}
-            </ul>
-
-            <Button 
-              size="lg" 
-              onClick={() => login()}
-              className="group text-lg px-8 h-14 w-full sm:w-auto"
+            {/* LEFT — branding + CTA */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.55, ease: "easeOut" }}
+              className="flex flex-col items-center text-center lg:items-start lg:text-left"
             >
-              Sign in with Google
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-          </motion.div>
+              {/* Logo */}
+              <motion.div
+                initial={{ opacity: 0, y: -12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="mb-8 flex flex-col items-center gap-3 lg:items-start"
+              >
+                <img src="/logo.png" alt="WebSaathii" className="h-28 w-auto drop-shadow-sm" />
+                <div className="text-center lg:text-left">
+                  <h1 className="text-3xl font-extrabold tracking-tight">
+                    Web<span className="text-green-500">Saathii</span>
+                  </h1>
+                  <p className="text-sm font-medium text-muted-foreground">Your AI Website Buddy</p>
+                </div>
+              </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative hidden lg:block h-[600px] w-full rounded-2xl overflow-hidden shadow-2xl shadow-primary/10 border border-border/50 bg-white"
-          >
-            <img 
-              src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
-              alt="WebSaathii AI Generation"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            {/* Glass overlay card */}
-            <div className="absolute bottom-8 left-8 right-8 rounded-xl bg-white/80 backdrop-blur-md border border-white/40 p-6 shadow-xl">
-              <div className="flex items-center gap-4 mb-4">
-                <div className="h-10 w-10 rounded-full bg-primary/20 flex items-center justify-center">
-                  <Sparkles className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-foreground">Generating Design...</h3>
-                  <p className="text-sm text-muted-foreground">Applying custom theme</p>
-                </div>
-              </div>
-              <div className="h-2 w-full bg-primary/10 rounded-full overflow-hidden">
-                <motion.div 
-                  initial={{ width: "0%" }}
-                  animate={{ width: "100%" }}
-                  transition={{ duration: 3, repeat: Infinity }}
-                  className="h-full bg-primary"
+              <h2 className="mb-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
+                Build your website in{" "}
+                <span className="bg-gradient-to-r from-primary to-green-500 bg-clip-text text-transparent">
+                  minutes
+                </span>
+                .
+              </h2>
+
+              <p className="mb-8 max-w-md text-lg text-muted-foreground">
+                Tell us about your business, choose your language, and let our AI write, design, and deliver a complete website — no tech skills needed.
+              </p>
+
+              <ul className="mb-10 space-y-3.5 self-start">
+                {features.map((feature, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.25 + i * 0.08 }}
+                    className="flex items-center gap-3 text-sm font-medium text-foreground"
+                  >
+                    <CheckCircle2 className="h-5 w-5 shrink-0 text-green-500" />
+                    {feature}
+                  </motion.li>
+                ))}
+              </ul>
+
+              <Button
+                size="lg"
+                onClick={() => login()}
+                className="group h-13 w-full gap-2 px-8 text-base shadow-lg shadow-primary/20 sm:w-auto"
+              >
+                Sign in with Google
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+
+              <p className="mt-4 text-xs text-muted-foreground">
+                Free to use · No credit card required
+              </p>
+            </motion.div>
+
+            {/* RIGHT — animated preview card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.94 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.7, delay: 0.15, ease: "easeOut" }}
+              className="hidden lg:flex flex-col gap-4"
+            >
+              <div className="relative h-[520px] w-full overflow-hidden rounded-2xl border border-border/50 bg-white shadow-2xl shadow-primary/8">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/hero-bg.png`}
+                  alt="WebSaathii preview"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
+                {/* Glass overlay */}
+                <div className="absolute inset-x-6 bottom-6 rounded-xl border border-white/50 bg-white/85 p-5 shadow-xl backdrop-blur-md">
+                  <div className="mb-4 flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
+                      <Sparkles className="h-5 w-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">Generating your website...</p>
+                      <p className="text-xs text-muted-foreground">Applying custom design</p>
+                    </div>
+                  </div>
+                  <div className="h-2 w-full overflow-hidden rounded-full bg-primary/10">
+                    <motion.div
+                      className="h-full bg-gradient-to-r from-primary to-green-500"
+                      initial={{ width: "0%" }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 2.8, repeat: Infinity, ease: "easeInOut" }}
+                    />
+                  </div>
+                  <div className="mt-3 flex gap-2">
+                    {["Writing content", "Designing layout", "Adding images"].map((step, i) => (
+                      <motion.span
+                        key={step}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: i * 0.4, repeat: Infinity, repeatDelay: 2.8 }}
+                        className="rounded-full bg-primary/8 px-2.5 py-1 text-xs font-medium text-primary"
+                      >
+                        {step}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
+          </div>
         </div>
       </main>
     </div>

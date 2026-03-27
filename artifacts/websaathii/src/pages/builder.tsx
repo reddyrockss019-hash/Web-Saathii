@@ -93,31 +93,30 @@ export default function Builder() {
 
   if (isPending) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center p-4">
-        <motion.div 
-          initial={{ scale: 0.8, opacity: 0 }}
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-blue-50/30 flex flex-col items-center justify-center p-6">
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="flex flex-col items-center text-center space-y-6 max-w-md"
+          transition={{ duration: 0.4 }}
+          className="flex flex-col items-center text-center space-y-8 max-w-sm w-full"
         >
-          <div className="relative">
-            <div className="absolute inset-0 bg-primary/20 blur-xl rounded-full" />
-            <div className="h-20 w-20 rounded-2xl bg-primary flex items-center justify-center shadow-2xl relative z-10 animate-pulse">
-              <Sparkles className="h-10 w-10 text-white" />
-            </div>
-          </div>
+          <img src="/logo.png" alt="WebSaathii" className="h-28 w-auto drop-shadow-sm animate-pulse" />
           <div>
-            <h2 className="text-3xl font-bold tracking-tight mb-2">Creating your website...</h2>
-            <p className="text-muted-foreground text-lg">
-              Our AI is writing copy, choosing layouts, and designing your new site in {formData.language}.
+            <h2 className="text-2xl font-extrabold tracking-tight mb-2">Building your website...</h2>
+            <p className="text-muted-foreground">
+              Our AI is writing content in <strong>{formData.language}</strong> and designing your site for <strong>{formData.businessName}</strong>.
             </p>
           </div>
-          <div className="w-full h-2 bg-secondary rounded-full overflow-hidden">
-            <motion.div 
-              className="h-full bg-primary"
-              initial={{ width: "0%" }}
-              animate={{ width: "90%" }}
-              transition={{ duration: 15, ease: "easeOut" }}
-            />
+          <div className="w-full space-y-2">
+            <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+              <motion.div
+                className="h-full bg-gradient-to-r from-primary to-green-500"
+                initial={{ width: "0%" }}
+                animate={{ width: "92%" }}
+                transition={{ duration: 18, ease: "easeOut" }}
+              />
+            </div>
+            <p className="text-xs text-muted-foreground text-right">This takes about 15–20 seconds</p>
           </div>
         </motion.div>
       </div>
@@ -125,7 +124,7 @@ export default function Builder() {
   }
 
   return (
-    <div className="min-h-screen bg-background flex flex-col">
+    <div className="min-h-screen bg-slate-50/50 flex flex-col">
       <Navbar />
       
       <main className="flex-1 w-full max-w-4xl mx-auto p-4 sm:p-6 lg:p-8 flex flex-col">
