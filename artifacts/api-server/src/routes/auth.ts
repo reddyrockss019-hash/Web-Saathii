@@ -1,8 +1,5 @@
 import * as oidc from "openid-client";
 import { Router, type IRouter, type Request, type Response } from "express";
-import {
-  GetCurrentAuthUserResponse,
-} from "@workspace/api-zod";
 import { db, usersTable } from "@workspace/db";
 import {
   clearSession,
@@ -79,11 +76,7 @@ async function upsertUser(claims: Record<string, unknown>) {
 }
 
 router.get("/auth/user", (req: Request, res: Response) => {
-  res.json(
-    GetCurrentAuthUserResponse.parse({
-      user: req.isAuthenticated() ? req.user : null,
-    }),
-  );
+  res.json({ user: req.isAuthenticated() ? req.user : null });
 });
 
 router.get("/login", async (req: Request, res: Response) => {
